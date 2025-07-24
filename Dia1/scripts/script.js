@@ -48,3 +48,8 @@ while(holi==true){
 }
 
 // Desarrollado por : Pedro Gomez - C.C:1.666.555.444
+
+dato={
+    "nombre":"Umaña",
+    "tipo":"planta"
+}
