@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
             <div class="botones">
                 <div class="terminadoNegativo">
-                    <img src="./storage/img/pngwing.com (2).png" alt="">
+                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="">
                 </div>
                 <div class="eliminadoNegativo">
-                    <img src="./storage/img/pngwing.com (4).png" alt="">
+                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="">
                 </div>
             </div>
                 `
@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
             <div class="botones">
                 <div class="terminado">
-                    <img src="./storage/img/pngwing.com (2).png" alt="">
+                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="">
                 </div>
                 <div class="eliminado">
-                    <img src="./storage/img/pngwing.com (4).png" alt="">
+                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="">
                 </div>
             </div>`
             }
