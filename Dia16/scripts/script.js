@@ -4,12 +4,35 @@ document.addEventListener('DOMContentLoaded',()=>{
     const addTaskButton = document.getElementById('addTaskButton');
 
     async function fetchData(){
-        const res =  await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas');
+        const res =  await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas',{
+            method: 'GET',
+            headers :{
+                'Content-Type':'application/json'
+            }
+        });
+
+
         let data = await res.json();
         return data;
     }
 
-
+    async function addNewTask(){
+        const task = taskInput.value;
+        console.log(task);
+        if (task.trim()==='') return;
+        await fetch('https://66df3340de4426916ee3dd7e.mockapi.io/tareas',{
+            method: 'POST',
+            headers :{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                task,status:'On hold'
+            })
+        });
+        taskInput.value='';
+        const data = await fetchData();
+        displayCapsula(data);
+    }
 
     //console.log(fetchData());
     function displayCapsula(capsula){
@@ -52,5 +75,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     fetchData().then(data =>{
         displayCapsula(data);
-    })
+    });
+    addTaskButton.addEventListener('click',addNewTask);
 });
