@@ -83,10 +83,26 @@ document.addEventListener('DOMContentLoaded',()=>{
         displayCapsula(data);
     });
     addTaskButton.addEventListener('click',addNewTask);
-    function botonCompletado(){
-        console.log(event.target.getAttribute('data-id'));
+    async function botonCompletado(){
+        const id = event.target.getAttribute('data-id');
+        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+            method: 'PUT',
+            headers :{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                status:'ready'
+            })
+        });
+        const data = await fetchData();
+        displayCapsula(data);
     }
-    function botonEliminado(){
-        console.log(event.target.getAttribute('data-id'));
+    async function botonEliminado(){
+                const id = event.target.getAttribute('data-id');
+        await fetch(`https://66df3340de4426916ee3dd7e.mockapi.io/tareas/${id}`,{
+            method: 'DELETE'
+        });
+        const data = await fetchData();
+        displayCapsula(data);
     }
 });
