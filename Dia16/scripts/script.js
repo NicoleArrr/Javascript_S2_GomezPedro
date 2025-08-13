@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
             <div class="botones">
                 <div class="terminadoNegativo">
-                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="">
+                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="" class='completado'>
                 </div>
                 <div class="eliminadoNegativo">
-                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="">
+                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="" class='eliminado'>
                 </div>
             </div>
                 `
@@ -63,18 +63,30 @@ document.addEventListener('DOMContentLoaded',()=>{
             </div>
             <div class="botones">
                 <div class="terminado">
-                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="">
+                    <img src="./storage/img/pngwing.com (2).png" data-id="${cap["id"]}" alt="" class='completado'>
                 </div>
-                <div class="eliminado">
-                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="">
+                <div class="eliminar">
+                    <img src="./storage/img/pngwing.com (4).png" data-id="${cap["id"]}" alt="" class='eliminado'>
                 </div>
             </div>`
             }
             datosContenedor.appendChild(capDiv);
+        });
+        document.querySelectorAll('.completado').forEach(button => {
+                button.addEventListener('click',botonCompletado);
+        });
+        document.querySelectorAll('.eliminado').forEach(button => {
+                button.addEventListener('click',botonEliminado);
         });
     }
     fetchData().then(data =>{
         displayCapsula(data);
     });
     addTaskButton.addEventListener('click',addNewTask);
+    function botonCompletado(){
+        console.log(event.target.getAttribute('data-id'));
+    }
+    function botonEliminado(){
+        console.log(event.target.getAttribute('data-id'));
+    }
 });
